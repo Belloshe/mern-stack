@@ -18,8 +18,9 @@ app.use(express.json());
 
 
 app.use(cors({
-  origin: 'https://willowy-puffpuff-52af0d.netlify.app'
+  origin: 'https://mern-stackk.netlify.app'
 }));
+
 
 
 app.get('/api/test', (req, res) => {
