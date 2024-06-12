@@ -37,7 +37,7 @@ app.get('/api/test', (req, res) => {
   res.json({ message: 'API is working' });
 });
 
-app.use('/auth', authRoutes);
+app.use('/api/auth', authRoutes);
 app.use('/api/posts', postRoutes);
 app.use('/api/comments', commentRoutes);
 
