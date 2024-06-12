@@ -7,7 +7,6 @@ dotenv.config();
 
 exports.register = async (req, res) => {
   const { username, password } = req.body;
-  console.log(req.body); 
   try {
     if (!username || !password) {
       return res.status(400).json({ message: 'Please enter all fields' });
@@ -27,7 +26,6 @@ exports.register = async (req, res) => {
       res.json({ token });
     });
   } catch (err) {
-    console.error('Error in register:', err.message);
     res.status(500).send('Server error');
   }
 };
@@ -51,7 +49,6 @@ exports.login = async (req, res) => {
       res.json({ token });
     });
   } catch (err) {
-    console.error('Error in login:', err.message);
     res.status(500).send('Server error');
   }
 };
