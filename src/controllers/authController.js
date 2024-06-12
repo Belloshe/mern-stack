@@ -7,7 +7,6 @@ dotenv.config();
 
 exports.register = async (req, res) => {
   const { username, password } = req.body;
-  console.log(req.body); 
   try {
     if (!username || !password) {
       return res.status(400).json({ message: 'Please enter all fields' });
