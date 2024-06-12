@@ -13,7 +13,6 @@ exports.createComment = async (req, res) => {
     const comment = await newComment.save();
     res.json(comment);
   } catch (err) {
-    console.error('Error in createComment:', err.message);
     res.status(500).send('Server error');
   }
 };
@@ -23,7 +22,6 @@ exports.getComments = async (req, res) => {
     const comments = await Comment.find({ post: req.params.postId }).populate('user', ['username']);
     res.json(comments);
   } catch (err) {
-    console.error('Error in getComments:', err.message);
     res.status(500).send('Server error');
   }
 };
@@ -42,7 +40,7 @@ exports.deleteComment = async (req, res) => {
     await Comment.deleteOne({ _id: req.params.id });
     res.json({ message: 'Comment removed' });
   } catch (err) {
-    console.error('Error in deleteComment:', err.message);
+    console.error('Error removing comment:', err); 
     res.status(500).send('Server error');
   }
 };
