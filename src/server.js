@@ -14,7 +14,11 @@ connectDB();
 
 app.use(express.json());
 
-const allowedOrigins = ['http://localhost:3000', 'https://mern-stackk.netlify.app', 'https://rad-frangipane-78242d.netlify.app'];
+const allowedOrigins = [
+  'http://localhost:3000',
+  'https://mern-stackk.netlify.app',
+  'https://rad-frangipane-78242d.netlify.app'
+];
 
 app.use(cors({
   origin: function (origin, callback) {
@@ -33,9 +37,9 @@ app.get('/api/test', (req, res) => {
   res.json({ message: 'API is working' });
 });
 
-app.use('/api/auth', authRoutes);
-app.use('/api/posts', postRoutes);
-app.use('/api/comments', commentRoutes);
+app.use('/auth', authRoutes);
+app.use('/posts', postRoutes);
+app.use('/comments', commentRoutes);
 
 const PORT = process.env.PORT || 5000;
 
