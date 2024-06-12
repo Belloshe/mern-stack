@@ -14,11 +14,7 @@ connectDB();
 
 app.use(express.json());
 
-const allowedOrigins = [
-  'http://localhost:3000',
-  'https://mern-stackk.netlify.app',
-  'https://rad-frangipane-78242d.netlify.app'
-];
+const allowedOrigins = ['http://localhost:3000', 'https://mern-stackk.netlify.app'];
 
 app.use(cors({
   origin: function (origin, callback) {
