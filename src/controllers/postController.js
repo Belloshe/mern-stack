@@ -7,7 +7,6 @@ exports.createPost = async (req, res) => {
     const post = await newPost.save();
     res.json(post);
   } catch (err) {
-    console.error('Error in createPost:', err.message);
     res.status(500).send('Server error');
   }
 };
@@ -17,7 +16,6 @@ exports.getPosts = async (req, res) => {
     const posts = await Post.find().populate('user', ['username']);
     res.json(posts);
   } catch (err) {
-    console.error('Error in getPosts:', err.message);
     res.status(500).send('Server error');
   }
 };
@@ -30,7 +28,6 @@ exports.getPostById = async (req, res) => {
     }
     res.json(post);
   } catch (err) {
-    console.error('Error in getPostById:', err.message);
     res.status(500).send('Server error');
   }
 };
@@ -50,7 +47,6 @@ exports.updatePost = async (req, res) => {
     await post.save();
     res.json(post);
   } catch (err) {
-    console.error('Error in updatePost:', err.message);
     res.status(500).send('Server error');
   }
 };
@@ -67,7 +63,6 @@ exports.deletePost = async (req, res) => {
     await post.remove();
     res.json({ message: 'Post removed' });
   } catch (err) {
-    console.error('Error in deletePost:', err.message);
     res.status(500).send('Server error');
   }
 };
@@ -79,7 +74,6 @@ exports.upvotePost = async (req, res) => {
     await post.save();
     res.json(post);
   } catch (err) {
-    console.error('Error in upvotePost:', err.message);
     res.status(500).send('Server error');
   }
 };
@@ -91,7 +85,6 @@ exports.downvotePost = async (req, res) => {
     await post.save();
     res.json(post);
   } catch (err) {
-    console.error('Error in downvotePost:', err.message);
     res.status(500).send('Server error');
   }
 };

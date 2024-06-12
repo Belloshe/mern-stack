@@ -40,6 +40,7 @@ exports.deleteComment = async (req, res) => {
     await Comment.deleteOne({ _id: req.params.id });
     res.json({ message: 'Comment removed' });
   } catch (err) {
+    console.error('Error removing comment:', err); 
     res.status(500).send('Server error');
   }
 };
